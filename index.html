@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Earth Globe Grid Viewer (0.125° capable)</title>
+
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<div id="app">
+		<div id="renderer">
+			<div id="textureSelector" class="texture-selector">
+				<select id="textureSelect" class="select" title="Select Earth Texture">
+					<option value="earth_vegitation.jpg" selected>Vegetation</option>
+					<option value="earth_temperature.png">Temperature</option>
+					<option value="pollution_combined.png">Pollution</option>
+					<option value="precipitation_combined.png">Precipitation</option>
+					<option value="earth_temperature_descrete.png">Temperature (Discrete)</option>
+					<option value="earth_pollution.png">Pollution (Mask)</option>
+					<option value="earth_precipitation.png">Precipitation (Mask)</option>
+					
+				</select>
+			</div>
+		</div>
+		<div id="toolbar">
+			<div id="tray">
+				<div class="group">
+					<div class="step-wrap">
+						<label class="label" for="stepSelect">Grid step</label>
+						<select id="stepSelect" class="select" title="Grid step">
+							<option value="4" selected>4°</option>
+							<option value="3">3°</option>
+							<option value="2">2°</option>
+							<option value="1">1°</option>
+							<option value="0.5">0.5°</option>
+							<option value="0.25">0.25°</option>
+							<option value="0.125">0.125°</option>
+						</select>
+					</div>
+					<button id="renderBtn" class="btn" disabled title="Render grid">Render</button>
+					<div class="metrics">
+						<div id="ptCount">Points: —</div>
+						<div id="mem">Approx VRAM: —</div>
+					</div>
+					<div id="spinner" hidden aria-hidden="true"></div>
+				</div>
+				<div class="group">
+					<label class="toggle-switch">
+						<input type="checkbox" id="coarseToggle" checked />
+						<span class="toggle-slider"></span>
+						<span>Coarse Grid</span>
+					</label>
+					<label class="toggle-switch">
+						<input type="checkbox" id="gridToggle" checked />
+						<span class="toggle-slider"></span>
+						<span>Grid Points</span>
+					</label>
+				</div>
+				<div class="group controls">
+					<button id="zoomIn" class="btn" title="Zoom in">＋</button>
+					<button id="zoomOut" class="btn" title="Zoom out">－</button>
+					<button id="reset" class="btn" title="Reset view">⟳</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="importmap">
+	{
+		"imports": {
+			"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+			"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+		}
+	}
+	</script>
+	<script type="module" src="js/app.js"></script>
+</body>
+</html>
+
