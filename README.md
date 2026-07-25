@@ -34,6 +34,15 @@ WorldViewer is a zero-build, single-page WebGL application that renders a rotata
 - **Toggle overlays** — independently show or hide the coarse graticule lines and the generated grid points.
 - **Responsive & self-contained** — a fixed grid layout adapts to small screens, and Three.js loads via an ES-module import map with no bundler or build step.
 
+## 📸 Climate Layers
+
+The same interactive globe, rendered across different climate datasets (Vegetation is shown in the hero above):
+
+| | | |
+|:--:|:--:|:--:|
+| ![Temperature layer](.github/assets/gallery/temperature.png) | ![Pollution layer](.github/assets/gallery/pollution.png) | ![Precipitation layer](.github/assets/gallery/precipitation.png) |
+| **Temperature** | **Pollution** | **Precipitation** |
+
 ## 🔧 How it works
 
 The app builds a single Three.js scene and drives it from the bottom toolbar. Layer imagery is applied as a `MeshBasicMaterial` map, while the graticule and the grid are separate objects generated procedurally from latitude/longitude math.
